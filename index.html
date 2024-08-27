@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Página Web</title>
+    <title>Encriptador de Textos</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -35,6 +35,11 @@
                 <h1 class="alura">a</h1>
                 </div>
 
+<div class="titulo__encriptador"><p>Encriptador de textos</p>
+    
+</div>
+
+<br>
         <div class="form-container">                
                 <!-- <input type="text" id="txtTexto" placeholder = " " required class="txtTexto"> -->               
                 <textarea id="txtTexto" placeholder = " " required class="txtTexto" rows="10" cols="30" ></textarea>
@@ -62,31 +67,33 @@
 
 
         <div class="desencriptar-container-right">
-<div class="presentacion">
-    <div class="desc-imagen">
-        <img class="encriptar__imagen" src="assets/imagen_verificar.png" alt="Una persona Trabajando" class="container_imagen-persona"/>    
-    </div>
-    <div class="mensaje-no-encontrado">
-        <p class="texto-mensaje">Ningún mensaje fue encontrado</p>
-        <p class="texto-mensaje-ingresar">Ingresa el texto que desees encriptar o descriptar.</p>
-    </div>
-</div>
-<div class="sub__desencriptar-container-right">
-<h2 class="texto__resultado">Resultado:</h2>
-<div class="resulado" id="resultado">
-<textarea class="mensaje" readonly cols="30" rows="10"></textarea>
-</div>
+            <section class="contenido__right">
+                <div class="presentacion">
+                    <div class="desc-imagen">
+                        <img class="encriptar__imagen" src="assets/imagen_verificar.png" alt="Una persona Trabajando" class="container_imagen-persona"/>    
+                    </div>
+                    <div class="mensaje-no-encontrado">
+                        <p class="texto-mensaje">Ningún mensaje fue encontrado</p>
+                        <p class="texto-mensaje-ingresar">Ingresa el texto que desees encriptar o descriptar.</p>
+                    </div>
+                </div>
+                <div class="sub__desencriptar-container-right">
+                <h2 class="texto__resultado">Resultado:</h2>
+                <div class="resulado" id="resultado">
+                <textarea class="mensaje" readonly cols="30" rows="10"></textarea>
+                </div>
 
 
 
-<div class="botones__sec">
-    <button class="funciones__boton1" id="btn__copiar"><span>Copiar</span></button>   
-    <button class="funciones__boton1" id="btn__limpiar"><span>Limpiar</span></button>  
-</div>
-<br>
-<p class="texto__Respuesta" id="texto__Respuesta"></p>
+                <div class="botones__sec">
+                    <button class="funciones__boton1" id="btn__copiar"><span>Copiar</span></button>   
+                    <button class="funciones__boton1" id="btn__limpiar"><span>Limpiar</span></button>  
+                </div>
+                <br>
+                <p class="texto__Respuesta" id="texto__Respuesta"></p>
 
-</div>
+                </div>
+            </section>
         </div>
 
 
@@ -97,7 +104,7 @@
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <p>Ingrese Texto</p>
+            <p id="modal__mensaje">Ingrese Texto</p>
             <button id="cerrarModal" class="cerrar-button">Cerrar</button>
         </div>
     </div>

@@ -7,15 +7,28 @@ const div__Desencriptar = document.querySelector('.sub__desencriptar-container-r
 const texto__Respuesta = document.getElementById('texto__Respuesta');
 
 const mensaje__alerta = document.getElementById('modal');
+const modal__mensaje = document.getElementById('modal__mensaje');
 
-
-// document.addEventListener('click',function(event){
-//     if (!textoRespuesta.contains(event.target)) {
-//         texto__Respuesta.style.display = 'none'; // Oculta el elemento
-//     }
-// })
 
 txtTexto.addEventListener('input', function() {
+    const convertirenMinusculas = this.value.toLowerCase();
+
+const specialCaracter = /[^a-z0-9\sñÑ]/g.exec(convertirenMinusculas);
+if(specialCaracter){
+    const specialChar = specialCaracter[0];
+       setTimeout(() => {
+
+        const cleanedText = convertirenMinusculas.replace(/[^a-z0-9\sñÑ]/g, '');
+        this.value = cleanedText;
+    }, 100); 
+    modal__mensaje.textContent="No debe utilizar Letras con Acentos, Caracteres Especiales y Tampoco Mayusculas.";
+    mensaje__alerta.style.display='flex';
+} else {
+
+    this.value = convertirenMinusculas;
+}
+
+  
     let contadorCaracteres = limiteCaracteres - txtTexto.value.length;
     if (contadorCaracteres < 0) {
         contadorCaracteres = 0;
@@ -24,22 +37,73 @@ txtTexto.addEventListener('input', function() {
     if (txtTexto.value.length > limiteCaracteres) {
         txtTexto.value = txtTexto.value.slice(0, limiteCaracteres);
     }
-
-
 });
 
 
 
 
+
+
 ///SCRIPT PARA DESENCRIPTAR------------------------------------------
+
+// La letra "e" es convertida para "enter"
+// La letra "i" es convertida para "imes"
+// La letra "a" es convertida para "ai"
+// La letra "o" es convertida para "ober"
+// La letra "u" es convertida para "ufat"
+
+
+
+// console.table(matrizCodigo);
+function encriptar(StringTexto,key){
+    let matrizCodigo = [["e","enter"],
+                        ["i","imes"],
+                        ["a","ai"],
+                        ["o","ober"],
+                        ["u","ufat"]];
+ console.table(matrizCodigo);
+
+    StringTexto = StringTexto.toLowerCase();
+
+    for(let i = 0; i < matrizCodigo.length; i++){
+        if(StringTexto.includes(matrizCodigo[i][0])){
+            // StringTexto = StringTexto.replace(new RegExp(matrizCodigo[i][0], 'g'),key + matrizCodigo[i][1]);
+           StringTexto = StringTexto.replaceAll(matrizCodigo[i][0],matrizCodigo[i][1]);
+        }
+    }
+    return StringTexto;
+}
+
+function desencriptar(StringTexto,key){
+    let matrizCodigo = [["e","enter"],
+                        ["i","imes"],
+                        ["a","ai"],
+                        ["o","ober"],
+                        ["u","ufat"]];
+    StringTexto = StringTexto.toLowerCase();
+
+    for(let i = 0; i < matrizCodigo.length; i++){
+        if(StringTexto.includes(matrizCodigo[i][1])){
+            // StringTexto = StringTexto.replace(new RegExp(matrizCodigo[i][0], 'g'),key + matrizCodigo[i][1]);
+           StringTexto = StringTexto.replaceAll(matrizCodigo[i][1],matrizCodigo[i][0]);
+        }
+    }
+    return StringTexto;
+}
+
+
 // const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/~` ';
+//OTRO METODO DE INCRIPTACION
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/~` ÁáÉéÍíÓóÚúÑñÜü';
 
+
+
+
+
+
 function encriptarTexto(text,key){    
     let encriptarTexto = "";
-
-
     for(let i = 0; i < text.length; i++){
         const textChar = text[i];
         const keyChar = key[i % key.length];
@@ -87,9 +151,13 @@ function actualizarResultado(isEncrypting) {
 
     let resultado = "";
     if(isEncrypting){
-        resultado = encriptarTexto(texto,key);
+        resultado = encriptar(texto,key);
+        // resultado = encriptarTexto(texto,key);
+
     }else{
-        resultado = desencriptarTexto(texto,key);
+
+        resultado = desencriptar(texto,key);
+        // resultado = desencriptarTexto(texto,key);
     }
  //document.getElementById('resultado').textContent = resultado;
     mensaje.value = resultado;
@@ -106,22 +174,17 @@ function ajustarAlturaTextarea(textarea) {
 
 
 document.getElementById("btn__encriptar").addEventListener('click',
- 
-    function manejarClick() {
-        
+    function manejarClick() {        
             if(txtTexto.value===""){
                 mensaje__alerta.style.display='flex';
             }else{
                 mensaje__alerta.style.display = 'none';
-                div__Desencriptar.style.display='block';
+                // div__Desencriptar.style.display='flex';
                 actualizarResultado(true);
                 eliminarElemento();
                 txtTexto.value="";
-            }
-     
-    }
-
-       
+            }     
+    }      
 );
 
   // Función para cerrar el modal
@@ -141,16 +204,16 @@ document.getElementById("btn__desencriptar").addEventListener('click',
             mensaje__alerta.style.display = 'none';
             actualizarResultado(false);
             ajustarAlturaTextarea(mensaje);
-            div__Desencriptar.style.display='block';
+            // div__Desencriptar.style.display='block';
+            txtTexto.value="";
         }
-
-        
-       
-       
-        
-       
     }
 )
+
+
+
+
+
 //INICIALIZA EL RESULTADO CON TEXTO CIFRADO CUANDO CARGA LA PÁGINA
 document.addEventListener('DOMContentLoaded',() => {
     actualizarResultado(true);
@@ -160,9 +223,9 @@ document.addEventListener('DOMContentLoaded',() => {
 
 //Borrar el contenido
 function eliminarElemento() {    
-    var elemento = document.querySelector('.presentacion');
+    const elemento = document.querySelector('.presentacion');
     if (elemento) {
-        elemento.remove(); // Elimina el elemento del DOM
+        elemento.style.display='none';
     } else {
         console.error('No se encontró el elemento con la clase "presentacion".');
     }
@@ -191,18 +254,8 @@ document.getElementById("btn__copiar").addEventListener('click',
 document.getElementById("btn__limpiar").addEventListener('click',
     function(){
         mensaje.value="";
-        txtTexto.value="";
+     
     }
 )
 
 
-
-
-
-// txtTexto.addEventListener('input', function() {
-//     const contadorCaracteres = limiteCaracteres - txtTexto.value.length;
-//     contador.textContent = `Caracteres restantes: ${contadorCaracteres}`;
-//     if (contadorCaracteres <= 0) {
-//         txtTexto.value = txtTexto.value.slice(0, limiteCaracteres);
-//     }
-// });

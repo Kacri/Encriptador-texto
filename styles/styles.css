@@ -19,10 +19,21 @@
     --color-marron:#333;
     --color-azulcielo:#41f1c8;
     --color-turqueza:#90ffe1b6;
-    --color-verde:#22bea4e6;
+    --color-verde:#22bea4;
     --color-verdecielo:#00A188;
     --color-negro:#000000;
     --color-red:#f00b2a;
+}
+
+
+.titulo__encriptador{
+   position: relative;
+   color: var(--color-secundario);
+   font-weight: 700;
+   font-size: 1.5rem;
+   text-align: center;
+   line-height: 0.9em;
+   letter-spacing: 2px;
 }
 
 
@@ -184,9 +195,9 @@ textarea,input{
 .mensaje{
     border: none;
     margin-top: 10px;
-    width: 100%; /* Hace que el ancho del textarea sea del 100% del contenedor */
-    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
-    box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total del textarea */
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box; 
     resize: none;
 }
 
@@ -214,7 +225,40 @@ textarea,input{
 }
 
 
- .cotenedor-form-left {
+
+.contenido__right{
+    flex-grow: 1;
+}
+
+.contenido_funciones{
+    flex-grow: 1;
+}
+
+/* .presentacion__contenido{
+    width: 615px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+ */
+.presentacion{
+    width: 550px;
+    position: absolute;
+    background-color: var(--color-verde); 
+}
+
+
+
+
+.contador{
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: var(--color-secundario); /* Color del texto */
+    text-align: right;
+}
+
+
+.cotenedor-form-left {
     flex-grow: 1;
    /*flex*/
     margin: 5%;  
@@ -233,33 +277,9 @@ textarea,input{
 
 
 
-.contenido_funciones{
-    flex-grow: 1;
-}
-
-.presentacion__contenido{
-    width: 615px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-
-
-
-
-
-.contador{
-    font-size: 15px;
-    /* font-weight: bold; */
-    color: var(--color-secundario); /* Color del texto */
-    text-align: right;
-}
-
-
 .desencriptar-container-right {
     flex: 0.;
-    background-color: var(--color-verde); /* Color de fondo (puedes cambiarlo) */
+    background-color: var(--color-verde); 
     border-radius: 25px;
     padding: 10px;
     text-align: center;
@@ -267,7 +287,7 @@ textarea,input{
 }
 
 .sub__desencriptar-container-right{
-    display: none;
+    /* display: flex; */
     border-radius: 25px;
     padding: 10px;
     text-align: center;
@@ -309,13 +329,11 @@ textarea,input{
 
 
 
-  /* Media query para pantallas pequeñas (ejemplo: ancho menor a 600px) */
   @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
 
-  /* Aquí puedes aplicar cambios verticales, como permitir que el contenido se expanda */
 
 .resulado{
     width: auto;
@@ -327,6 +345,9 @@ textarea,input{
     width: auto;
 }
 .cotenedor-form-left{
+    width: auto;
+}
+.presentacion{
     width: auto;
 }
 }
@@ -348,7 +369,7 @@ textarea,input{
         margin: 5px 0;
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .contenedor-button {
         flex-direction: column;
     }
