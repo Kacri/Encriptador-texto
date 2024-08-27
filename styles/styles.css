@@ -1,0 +1,522 @@
+/* Importar la fuente Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    padding: 0;
+    margin:0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --color-gradient:linear-gradient(to right top,#017866, #017060, #006457, #00594e, #004d44, #00423b, #045e4f, #019b80, #02947c, #038e77, #048872, #0dc2a4d0);
+    --color-gradient-image:linear-gradient(to right top, #0e5349, #05806c, #0a6557, #0e5349, #0e5349);
+    --color-button:linear-gradient(to right top, #00a185, #019b80, #02947c, #038e77, #048872, #02806c, #017866, #017060, #006457, #00594e, #004d44, #00423b);
+    --color-secundario:#ffffff;
+    --color-hover:#05806c;
+    --color-terceario:#03301f;
+    --color-cuarto:#999;
+    --color-marron:#333;
+    --color-azulcielo:#41f1c8;
+    --color-turqueza:#90ffe1b6;
+    --color-verde:#22bea4e6;
+    --color-verdecielo:#00A188;
+    --color-negro:#000000;
+    --color-red:#f00b2a;
+}
+
+
+/* Estilos generales */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+  /*  background: linear-gradient(#00423b 50%,#00a185 50%);*/
+    background-image:var( --color-gradient-image);
+    background-size: cover;        
+            background-repeat: no-repeat;  
+            background-attachment: fixed;   
+            background-position: center;  
+            min-height: 100vh;             
+            display: flex;                 
+            flex-direction: column;           
+}
+
+header {
+    background-color:var(--color-hover);
+    padding: 10px 20px;
+    color: var(--color-secundario);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Estilos del menú de navegación */
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* background-color: #2be95b; */
+    background-image: var(--color-gradient-image);
+    border-radius: 10px;
+    margin-left: auto; /* Asegura que el menú esté al extremo derecho */
+  
+}
+
+.nav-menu li {
+    margin: 0 10px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-secundario);
+    padding: 10px 20px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: var(--color-hover);
+     
+}
+.alura{
+    font-size: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--color-secundario);
+    float: left;
+    margin: 40px;
+}
+
+
+/*------------------------------ Texto flotante ---------------------------------- */
+
+.form-container {
+    position: relative;
+    margin: 50px 0;
+    max-width: 600px;
+    margin: 50px auto; /* Centrar el formulario en la página */
+   /* Borde amarillo del formulario */
+    display: flex;
+    flex-direction:column;
+    /* flex-direction: row | row-reverse | column | column-reverse; */
+    margin-top: 0.1%;
+}
+
+
+
+
+.divalura{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1px;
+    }
+
+/* FORMULARIO DE TEXTO */
+
+.form-container textarea{
+    font-size: 20px;
+    color: var(--color-terceario); /* Color del texto */  
+    box-sizing: border-box;  
+    transition: border-color 0.2s ease; /* Agregar transición para suavizar el cambio de color */
+}
+
+
+
+textarea,input{
+    width: 100%;
+    padding: 12px 10px 10px 10px; /* Espacio suficiente para la etiqueta */
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    resize: none;
+    border: 1px solid var(--color-secundario); /* Borde más grueso */
+}
+
+
+.form-container label {
+    position: absolute;
+    top: 12px; /* Ajustar según el padding del input */
+    left: 12px;
+    font-size: 16px;
+    color: var(--color-cuarto);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    background: var(--color-secundario); /* Fondo rojo para que coincida con el fondo de la página */
+    padding: 0 5px;
+    z-index: 1; /* Asegura que la etiqueta esté por encima del input */
+}
+
+
+
+.form-container textarea:focus + label,
+.form-container textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: var(--color-marron);
+    background: var(--color-azulcielo); /* Mantener el fondo rojo cuando está en foco o con texto */
+    padding: 0 5px;
+}
+/* -------------------------------------------------------- */
+
+.txtTexto {
+    border: none;
+    margin-top: 10px;
+    width: 100%; /* Hace que el ancho del textarea sea del 100% del contenedor */
+    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total del textarea */
+    resize: none;
+}
+
+
+.mensaje{
+    border: none;
+    margin-top: 10px;
+    width: 100%; /* Hace que el ancho del textarea sea del 100% del contenedor */
+    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total del textarea */
+    resize: none;
+}
+
+
+.texto__resultado{
+    color: var(--color-secundario);    
+    margin-top: 10px;
+
+}
+
+.texto__pass{
+    color: var(--color-secundario);
+    font-size: 15px;    
+}
+
+
+.container {
+    display: flex; /* Utilizamos flexbox para alinear los divs */
+    margin: 10px;
+    justify-content: flex-end;
+}
+
+.container > div {
+    margin: 10px; /* Ajusta los márgenes según tus necesidades */
+}
+
+
+ .cotenedor-form-left {
+    flex-grow: 1;
+   /*flex*/
+    margin: 5%;  
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    /* justify-content: space-between; */
+    background-image:var(--color-gradient);
+    border-radius: 25px;    
+    padding: 10px;
+    /* border-style:ridge;     */
+    /* border-width: 10px;    */
+    /* border-color: var(--color-turqueza);   */
+}
+
+
+
+
+.contenido_funciones{
+    flex-grow: 1;
+}
+
+.presentacion__contenido{
+    width: 615px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+
+
+
+
+.contador{
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: var(--color-secundario); /* Color del texto */
+    text-align: right;
+}
+
+
+.desencriptar-container-right {
+    flex: 0.;
+    background-color: var(--color-verde); /* Color de fondo (puedes cambiarlo) */
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.sub__desencriptar-container-right{
+    display: none;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+}
+
+.resulado{
+    font-size: 15px;
+    /* border: 1px solid var(--color-secundario); */
+    padding: 10px;
+    width: auto;
+    /* min-height: 100px; */
+    overflow: hidden;
+    text-align: justify;
+    margin: 0 a;
+}
+
+
+
+.texto__Respuesta{
+    font-size: 15px;
+    color: var(--color-hover);
+    text-align: left;
+    /* display: none; */
+}
+
+.texto-mensaje{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    color: var(--color-secundario);
+}
+.texto-mensaje-ingresar{
+    padding: 15px 10px;
+    font-size: 15px;
+    color:var(--color-secundario);
+    font-weight: bold;
+}
+
+
+
+
+  /* Media query para pantallas pequeñas (ejemplo: ancho menor a 600px) */
+  @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+  /* Aquí puedes aplicar cambios verticales, como permitir que el contenido se expanda */
+
+.resulado{
+    width: auto;
+}
+.form-container{
+    width: auto;
+}
+.desencriptar-container-right{
+    width: auto;
+}
+.cotenedor-form-left{
+    width: auto;
+}
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .nav-menu li {
+        margin: 5px 0;
+    }
+}
+@media (max-width: 600px) {
+    .contenedor-button {
+        flex-direction: column;
+    }
+    .botones__sec{
+flex-direction: column;
+align-items: center;
+    }
+    .funciones__boton {
+        width: 80%;
+        font-size: 20px;
+        margin-right: 0;
+        margin-top: 1rem;
+    }
+.container{
+    width: auto;
+            }
+}
+
+.contenedor-button {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.botones__sec{
+    display: flex;
+    gap: 25px;
+}
+
+
+.funciones__boton:disabled {
+    background: var(--color-verdecielo);
+}
+
+.encriptar__imagen{
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+.karina{
+    color:var(--color-secundario);
+    font-weight:lighter;
+}
+
+
+
+/* .funciones__boton {
+    padding: 24px;
+    font-size: 24px;
+    width: 40%;
+    border-radius: 40px;
+    background-image: var(--color-button);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-right: 25px;
+    color: var(--color-secundario);
+    transition: .3s;
+    display:flex;
+} */
+
+
+
+button span{
+    background-color:var(--color-negro);
+    padding: 16px 24px;
+    border-radius: 35px;
+    transition: .3s;
+    width: 220px;
+
+}
+
+button:hover span{
+    background: none;
+}
+
+button:active{
+    transform: scale(0.9);
+}
+
+.funciones__boton{
+    border: 0px;
+    background-image: var(--color-button);
+    border-radius: 40px;
+    color: var(--color-secundario);
+    font-size: 24px;
+    padding: 4px;
+    cursor: pointer;
+    transition: .3s;
+    display:flex;
+    width: 220px;
+}
+
+.funciones__boton1{
+    padding: 4px;
+    font-size: 24px;
+    border-radius: 40px;
+    background-image: var(--color-gradient);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-right: 25px;
+    color: var(--color-secundario);
+    transition: .3s;
+    display:flex;
+}
+
+
+
+/* .btn__copiar{
+    padding: 4px;
+    font-size: 24px;
+    width: 60%;
+    border-radius: 40px;
+    background-image: var(--color-gradient);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-right: 25px;
+    color: var(--color-secundario);
+} */
+
+/* .mensaje__alerta{
+    display: none; 
+    background-color: #f44336; 
+    color: white; 
+    padding: 15px; 
+    border-radius: 5px; 
+    margin-top: 10px; 
+} */
+
+.modal {
+    display: none;
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 5px; 
+    width: 300px; 
+    text-align: center; 
+}
+
+.cerrar-button {
+    background-color:var(--color-red); 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    margin-top: 10px; 
+}

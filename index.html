@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Página Web</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="letra">
+         
+            
+        </section>
+
+
+
+<section id="ingresar">
+    <div class="container">      
+        <div class="cotenedor-form-left">
+        <section class="contenido_funciones">
+                <div class="divalura">
+                <h1 class="alura">a</h1>
+                </div>
+
+        <div class="form-container">                
+                <!-- <input type="text" id="txtTexto" placeholder = " " required class="txtTexto"> -->               
+                <textarea id="txtTexto" placeholder = " " required class="txtTexto" rows="10" cols="30" ></textarea>
+                <label for="txtTexto">Ingrese el Texto aqui</label>
+              
+                <p id="cantidad__caractares" class="contador"> Carecteres restantes: 500</p>  
+                <br>
+                   <div>
+                    <p class="texto__pass">Contraseña :</p>
+               
+                    <input type="text" id="key" value="karina chin">  
+                   </div>
+        </div>     
+
+     
+
+        <div class="contenedor-button">
+        <button class="funciones__boton" id="btn__encriptar"><span>Encriptar</span></button>
+        <button class="funciones__boton" id="btn__desencriptar"><span>Desencriptar</span></button>    
+        <!-- <button onclick="encriptar();" class="funciones__boton" id="btn__encriptar">Encriptar</button>
+        <button onclick="desencriptar();" class="funciones__boton" id="btn__desencriptar" disabled>Desencriptar</button>     -->
+        </div>
+        </section>      
+        </div>     
+
+
+        <div class="desencriptar-container-right">
+<div class="presentacion">
+    <div class="desc-imagen">
+        <img class="encriptar__imagen" src="assets/imagen_verificar.png" alt="Una persona Trabajando" class="container_imagen-persona"/>    
+    </div>
+    <div class="mensaje-no-encontrado">
+        <p class="texto-mensaje">Ningún mensaje fue encontrado</p>
+        <p class="texto-mensaje-ingresar">Ingresa el texto que desees encriptar o descriptar.</p>
+    </div>
+</div>
+<div class="sub__desencriptar-container-right">
+<h2 class="texto__resultado">Resultado:</h2>
+<div class="resulado" id="resultado">
+<textarea class="mensaje" readonly cols="30" rows="10"></textarea>
+</div>
+
+
+
+<div class="botones__sec">
+    <button class="funciones__boton1" id="btn__copiar"><span>Copiar</span></button>   
+    <button class="funciones__boton1" id="btn__limpiar"><span>Limpiar</span></button>  
+</div>
+<br>
+<p class="texto__Respuesta" id="texto__Respuesta"></p>
+
+</div>
+        </div>
+
+
+    </div>
+    <footer>
+        <p class="karina">&copy; 2024 Karina</p>    
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>Ingrese Texto</p>
+            <button id="cerrarModal" class="cerrar-button">Cerrar</button>
+        </div>
+    </div>
+
+
+</section>
+    </main>
+
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
